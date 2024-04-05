@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="./confirm.html" id="myform">
+        <!-- preventDefault() -->
+        
+        
+        <h1>Bank Loan Application Form</h1>
+        
+        
+        <label id="required"> <b>Full Name</b> </label> <br>
+        <input type="text" name="text" placeholder="Enter Your Name"><br><br>
+        
+        <label id="required"> <b>Email:</b> </label><br>
+        <input type="email" name="email" placeholder="Enter Your Email id"><br><br>
+        
+        <label id="required"> <b>Pan No:</b></label><br>
+        <input type="text" name="Pan No" placeholder="Enter PAN Card Number"><br>
+        
+        <p> <b>Amount (₹) </b> &nbsp;&nbsp;&nbsp;&nbsp;:
+            <input id="amount" type="number" onchange="Calculate()">
+        </p>
+        
+        <p> <b> Interest Rate (%)</b>&nbsp;:
+            <input id="rate" type="number" onchange="Calculate()">
+        </p>
+
+        <p> <b>Months to Pay : </b>
+            <input id="months" type="number" onchange="Calculate()">
+        </p>
+        
+        <button onclick="calculateEMI" id="calculate"> <b>Calculate EMI </b></button><br>
+        
+        <!-- <label>Estimated EMI</label><br><br>
+        <input type="text" name="EMI"> <br><br> -->
+        <!-- <button>Reset</button> -->
+        <div class="calculator">
+            <!-- <h1>Loan Calculator</h1> -->
+            
+        
+        <h2 id="total"></h2>
+        <input type="submit">&nbsp;&nbsp;&nbsp;<input type="reset" name="submit" id="submit">
+       
+
+    </div>
+
+    </form>
+
+
+    <script>
+
+        const form = document.querySelector('#myform');
+
+        form.addEventListener("submit", () => {
+
+            const OTP = Math.round(Math.random()*1000+1000);
+
+            alert(OTP);
+
+            localStorage.setItem("mainOTP", OTP);
+
+        })
+
+        function Calculate() {
+    
+    
+    const amount = document.querySelector("#amount").value;
+    
+    const rate = document.querySelector("#rate").value;
+    
+    
+    const months = document.querySelector("#months").value;
+    
+    
+    const interest = (amount * (rate * 0.01)) / months;
+    
+    
+    const total = ((amount / months) + interest).toFixed(2);
+    
+    document.querySelector("#total")
+        	.innerHTML = "EMI : (₹)" + total;
+    }  
+
+        // function calculateEMI(){
+
+        //     let rate = document.getElementById("rate")
+
+        //     let Year = document.getElementById("year")
+
+        //     // let calculate = document.getElementById("calculate")
+
+        //     let intrest = ((amount/months) + intrest ).toFixed(2);
+
+        //     document.getElementById(calculate).innerHTML="EMI : (Rs)" + total;
+
+        // }
+
+
+        
+
+
+        // Calculate.addEventListener("click",(e)=>{
+        //     e.preventDefault();
+        //     calculateEMI();
+        // })
+
+        // function calculateEMI(){
+
+        //     let noOFmonths=0;
+        //     if (isMonth=="") {
+        //         alert('Please enter the loan tenure type')
+                
+        //     } else {
+        //         noOFmonths=loanDuration.value;
+        //     }
+        //     let r = parseFloat(interestRate.value)/12/100;
+        //     let p = loanAmount.value;
+        //     let n = noOFmonths;
+
+        //     let EMI = (p*r* Math.pow ((1+r),n)) / (Math.pow((1+r),n)-1);
+        //     let totalInterest = (EMI*n)-p;
+        //     let totalPayment=totalInterest + parseFloat(p);
+
+        //     document.getElementById("emi").innerText="Rs" + Math.round(EMI);
+
+        // }
+
+
+
+
+
+
+
+
+    </script>
+
+ 
+</body>
+
+</html>

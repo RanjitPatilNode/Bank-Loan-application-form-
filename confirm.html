@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="">
+
+
+        <h1>Bank loan application details </h1>
+        <h3>
+
+            Thanks for your enquiry <br>
+            OTP Has been sent to your Email. <br>
+            Please Enter the OTP and submit the for verificatoin
+        </h3>
+        <label for="OTP">Enter your OTP :</label><br><br>
+        <input type="text" name="userOTP" id="userOTP"><br><br>
+        <button onclick="checkOTP()">check</button>
+        <button>Back</button>
+
+        
+
+        <script>
+
+            function checkOTP() {
+
+                const userOTP = parseInt(document.querySelector("#userOTP").value);
+
+                const mainOTP = parseInt(localStorage.getItem("mainOTP"));
+
+                console.log(userOTP);
+
+                if (userOTP === mainOTP) {
+
+                    alert("Your form submitted successfully")
+                }
+
+                else {
+                    alert("fail")
+                }
+
+
+
+
+            }
+
+
+        </script>
+
+
+
+    </form>
+</body>
+
+</html>

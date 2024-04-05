@@ -1,0 +1,24 @@
+.main{
+    border: solid black;
+    width: fit-content;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    /* background-color: rgb(107, 185, 185); */
+   
+}
+#required::after{
+    content: "*";
+    color: red;
+}
+
+form{
+    background-color: rgb(165, 170, 170);
+    width: 20vw;
+    height: 90vh;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 10px 400px;
+    padding: 10px 10px;
+    /* text-align: center; */
+}
